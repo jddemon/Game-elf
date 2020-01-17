@@ -1,0 +1,212 @@
+body {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+div.bg_scale_bg {
+
+	background: linear-gradient(#e66465, #9198e5);
+}
+div.bg_scale_value {
+
+	background: linear-gradient(red, black);
+}
+div.scale_text {
+	color: white;
+}
+
+span.resultlabel{
+	font-size: 20pt;
+	text-shadow: 0px 0px 5px black, 0px 0px 5px black, 0px 0px 5px black;
+	color:white;
+}
+
+
+div.labelscale{
+	color: black;
+	text-shadow: 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white;
+	font-size: 8pt;
+}
+
+td.balls{
+	font-size:30pt;
+	border-radius: 40pt;
+	background-color: #fff5;
+	color:black;
+	text-shadow: 0px 0px 8px white, 0px 0px 8px white, 0px 0px 8px white;
+	
+}
+
+td.timer{
+	font-size:20pt;
+	border-radius: 50pt;
+	background-color: #fff5;
+	color:black;
+	text-shadow: 0px 0px 5px white, 0px 0px 5px white, 0px 0px 5px white;
+}
+
+input.username {
+
+	background: linear-gradient(#CDB09E, #673838);
+	color:#FFEA00;
+	border-radius: 10px;
+	width: 50%;
+	height: 20pt;
+	outline: none;
+	animation: 0.3s cubic-bezier(.29, 1.01, 1, -0.68) 0.9s 1 normal backwards openinstruction;
+}
+
+input::-moz-placeholder { color: #FFEA00; }
+input::-webkit-input-placeholder { color: #FFEA00; }
+
+
+
+input.startgame {
+	background: linear-gradient(#8c8, #7d7);
+	padding: 20px;
+	border-radius: 20px;
+	outline: none;
+	opacity: 0.5;
+	animation: 0.3s cubic-bezier(.29, 1.01, 1, -0.68) 1.2s 1 normal backwards openinstruction;
+}
+
+input.startnewgame {
+	background: linear-gradient(red, yellow);
+	padding: 10px;
+	border-radius: 10px;
+	outline: none;
+	opacity: 1;
+}
+
+table.tableresult{
+	
+	
+	border-radius: 10px;
+	border: 1px solid black;
+	
+}
+
+table.tableballs{
+	border:1px solid #5558;
+	background-color: #aaa7;
+	border-radius:5px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+
+td.labeltableresult{
+	font-size: 20px;
+	padding: 3px;
+	background: linear-gradient(#aaa, #ccc);
+	border-left: 1px solid #888;
+	border-right: 1px solid #888;
+}
+
+td.labeltableresultresult{
+	font-size: 20px;
+	padding: 2px;
+	background: linear-gradient(#aca, #cfc);
+	border-left: 1px solid #888;
+	border-right: 1px solid #888;
+	
+}
+
+td.labeltableresultresult_tl{
+	border-top-left-radius: 10px;
+	
+}
+td.labeltableresultresult_tr{
+	border-top-right-radius: 10px;
+	
+}
+td.labeltableresultresult_br{
+	border-bottom-right-radius: 10px;
+	
+}
+td.labeltableresultresult_bl{
+	border-bottom-left-radius: 10px;
+	
+}
+
+td.labeltableresult2{
+	color:red;
+	
+}
+
+
+
+div.testbox{
+	width: 100px; height: 100px; background-color: #9f9;
+	opacity: 0.3;
+}
+
+div.instruction {
+	background: linear-gradient(#8EBE71, #153910);
+	
+	
+	animation-name: openinstruction,animateinstruction;
+	animation-duration: 0.3s,1s;
+	animation-timing-function:cubic-bezier(.29, 1.01, 1, -0.68),ease;
+	animation-delay:0.3s,0.6s;
+	animation-iteration-count:1,infinite;
+	animation-direction:normal,alternate-reverse;
+	animation-fill-mode:backwards;
+	animation-play-state: running;
+	
+	
+	
+	border-radius:20px;
+	padding: 10px;
+	color:white;
+	border: 1px solid black;
+	
+}
+
+div.instruction_anim{
+	
+	animation: 0.3s cubic-bezier(.29, 1.01, 1, -0.68) 0.9s infinite  alternate-reverse backwards animateinstruction;
+	
+}
+
+div.logo{
+	animation: 0.3s cubic-bezier(.29, 1.01, 1, -0.68) 0.3s 1 normal backwards openinstruction;
+}
+
+
+
+
+@keyframes openinstruction {
+from {
+	opacity: 0;
+	transform: scale(1,0);
+}
+to {
+	opacity: 1;
+	transform:scale(1,1);
+}  
+}
+
+@keyframes openui {
+from {
+	opacity: 0;
+	
+}
+to {
+	opacity: 1;
+	
+}  
+}
+
+
+@keyframes animateinstruction {
+from {
+	transform: scale(1,0.9);
+}
+to {
+	
+	
+	transform:scale(1,1);
+}  
+}
+
+
+

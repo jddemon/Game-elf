@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8" />
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>Elf Adventures</title>
+		<meta name="description" content="" />
+		<meta name="author" content="1" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="stylesheet" href="./css/game.css">
+	</head>
+	<body style="overflow-x: hidden;">
+		<div>
+			<header>
+				
+			</header>
+			<nav>
+				
+			</nav>
+			<div id="test"></div>
+			
+			<div>
+				<!--game-->
+				<div align="center" style="position: absolute; left: 50%; top:0%; transform:translate(-50%,5%); border: 1px solid black;">
+					<!--кнтейнер для игры-->
+					<div align="center" id="game">
+						<!--кнтейнер для экранов-->
+						<div align="center" id="displays"></div>
+					</div>
+					<!--шаблоны-->
+					<div style="width: 0px; height: 0px; visibility: hidden;">
+						<!--вювер-->
+						<div id="viewer" style="width:640; height: 420; background-color: #aad;">
+							<div id="viewport" style="position: absolute; clip: rect(0px,300,200,0px);">
+								<!--камера-->
+								<div style="position: absolute;" id="camera"></div>
+							</div>
+						</div>
+						<!--Шкала-->
+						<div id="pattern_scale" style="">
+							<div class="bg_scale_bg" id="scale_background" style="width:100px; height: 20px; border-radius: 10px;">
+								<div class="bg_scale_value" id="scale_value" style=" width:10px; height: 20px; border-radius: 10px;">
+									<div class="scale_text" align="right" id="scale_text">
+										100
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--Умения-->
+						<div id="pattern_skill" style="width:50px; height: 50px; background-color: white; border: 1px solid #000; border-radius: 5px;">
+							<div style="position: relative; width: inherit; height: inherit;">
+								<table style="position: absolute; width: 100%; height: 100%;">
+									<tr>
+										<td align="center" valign="center" id="forimage"><img id="img_skill" src="./img/skill1.png" style="width: 90%;"></img></td>
+									</tr>
+								</table>
+								<div id="scale_skill" style="position: absolute; width: 50%; height: 100%; background-color: #0006;"></div>
+								<table style="width:100%; height:100%; position: absolute;">
+									<tr>
+										<td align="right" style="vertical-align: bottom; color:white; font-size: 15px;"><span id="text_skill" style="text-shadow: 0px 0px 3px black, 0px 0px 3px black, 0px 0px 3px black;">2</span></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<!--Дисплей результатов-->
+						<table id="pattern_table_result">
+							<!--Таблица результатов--->
+							<tr><td width="100%" align="center" colspan="5"><span class="resultlabel">Результаты</span></td></tr>
+							<tr>
+								<td align="center" valign="center">
+								<table class="tableresult" cellpadding="0px" cellspacing="0px" id="table_result" style="width: 200px;">
+									
+									<tr>
+										
+										<td align="center" valign="center" class="labeltableresult labeltableresultresult_tl">Место</td>
+										<td align="center" valign="center" class="labeltableresult">Имя</td>
+										<td align="center" valign="center" class="labeltableresult">Результат</td>
+										<td align="center" valign="center" class="labeltableresult">Время</td>
+										<td align="center" valign="center" class="labeltableresult labeltableresultresult_tr">Местоположение</td>
+										
+									</tr>
+									
+									
+								</table>
+								</td>
+							</tr>
+							<tr>
+								<td align="center" valign="bottom">
+									<!--Играть сначала-->
+									<input id="button_start_new_game" class="startnewgame" type="button" value="Играть сначала"></input>
+									
+								</td>
+							</tr>
+						</table>
+						<!--Стартовый дисплей-->
+						<table id="pattern_display_start" style="width:400px; height: 300px; background-color: #999;">
+							<tr>
+								<td align="center"><!--лого игры-->
+								<div class="logo">
+									<img id="logogame" src="./img/logo.png"></img>
+								</div></td>
+							</tr>
+							<tr>
+								<td align="center"><!--инструкции-->
+								<div class="instruction" id="instruction">
+									Для управления эльфом используйте <b>клавиши со срелками</b>.
+									Для использовани умений - <b>клавиши цифр: 1,2,3,4</b>;
+								</div></td>
+							</tr>
+							<tr>
+								<td align="center">
+								<div>
+									<input id="inputusername" class="username" type="text" placeholder="Введите ваше имя">
+									<br>
+									<br>
+									<input id="buttonstartgame" class="startgame" type="button" value="Начать">
+									</input>
+								</div></td>
+							</tr>
+						</table>
+						<!--Игровой дисплей-->
+						<table id="pattern_display_game">
+							<tr>
+								<td>
+									<div id="forviewer" style="z-index:10; position: absolute; left:0px; top:0px; width: 300px; height: 200px; background-color: green;"></div>
+								<table id="game_box_ui" style="z-index:11; position: absolute; left:0px; top:0px;">
+									<tr>
+										<td width="33%" align="left" style="vertical-align: top;"><!--HP MP-->
+											<div id="game_box_name">Имя</div>
+											<div class="labelscale">Жизни</div>
+											<div id="game_box_hp"></div>
+											<div class="labelscale">Энергия</div>
+											<div id="game_box_mp"></div>
+											
+										</td>
+										<td width="33%" align="center" valign="top"><!--баллы-->
+											<table class="tableballs">
+												<tr><td align="center">Баллы</td></tr>
+												<tr><td align="center" id="balls" class="balls">16</td></tr>
+												
+											</table>
+										</td>
+										<td width="33%" id="game_box_timer" align="right" valign="top">
+											<!--Время-->
+											<table>
+												<tr><td align="center" id="fortimer" class="timer">00:00</td></tr>
+												<!--Начать заново-->
+												<tr><td style="opacity:0;"><input id="newgame" class="startnewgame" type="button" value="Начать заново"></td></tr>
+												
+											</table>
+										</div></td>
+									</tr>
+									<tr>
+										<td id="game_box_skills" colspan="3" align="center" style="vertical-align: bottom;"><!--Умения-->
+											<table><tr><td id="forskill1"></td><td id="forskill2"></td><td id="forskill3"></td><td id="forskill4"></td></tr></table>
+										</div></td>
+									</tr>
+								</table>
+								
+								</td>
+							</tr>
+						</table>
+					</div>
+					
+				</div>
+			</div>
+			<footer>
+				<p>
+					
+				</p>
+			</footer>
+		</div>
+		<!--Скрипты-->
+		<script src="./js/display_game.js"></script>
+		<script src="./js/display_result.js"></script>
+		<script src="./js/display_start.js"></script>
+		<script src="./js/display.js"></script>
+		<script src="./js/fps.js"></script>
+		<script src="./js/geolocation.js"></script>
+	    <script src="./js/phisic.js"></script>
+		<script src="./js/scale.js"></script>
+		<script src="./js/score.js"></script>
+		<script src="./js/skill.js"></script>
+		<script src="./js/storage.js"></script>
+		<script src="./js/table.js"></script>
+		<script src="./js/timer.js"></script>
+		<script src="./js/ui.js"></script>
+		<script src="./js/viewer.js"></script>
+		<script src="./js/game.js"></script>
+		<script>
+		
+		
+		
+		</script>
+	</body>
+</html>
